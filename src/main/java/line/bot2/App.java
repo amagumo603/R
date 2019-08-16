@@ -1,4 +1,6 @@
 package line.bot2;
+import java.util.Random;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -20,6 +22,15 @@ public class App {
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);
+        final String originalMessageText = event.getMessage().getText();
+    	Random random = new Random();
+    	if(originalMessageText == "ももも"){
+    		return new TextMessage("もちもち");
+        }
+        int randomValue = random.nextInt(2);
+        if(randomValue == 0){
+        	return new TextMessage("ももも");
+        }
         return new TextMessage(event.getMessage().getText());
     }
 
