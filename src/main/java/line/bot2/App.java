@@ -24,7 +24,7 @@ public class App {
         System.out.println("event: " + event);
         final String originalMessageText = event.getMessage().getText();
     	Random random = new Random();
-    	if(originalMessageText == "ももも"){
+    	if(originalMessageText.equals("ももも")){
     		return new TextMessage("もちもち");
         }
         int randomValue = random.nextInt(2);
