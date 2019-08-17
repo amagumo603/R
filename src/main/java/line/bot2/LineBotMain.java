@@ -1,6 +1,4 @@
 package line.bot2;
-import java.util.List;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -25,16 +23,18 @@ public class LineBotMain {
         System.out.println("event: " + event);
         final String originalMessageText = event.getMessage().getText();
 
-
-    	Service service = new Service();
-    	try {
-    		List<String> list =service.service();
     		String reWord = "";
-    		for(String word:list) {
-    			reWord += word;
-    		}
 
-    	/*
+        	/*
+        	Service service = new Service();
+        	try {
+        		List<String> list =service.service();
+        		String reWord = "";
+        		for(String word:list) {
+        			reWord += word;
+        		}
+
+
 
     	Random random = new Random();
     	if(originalMessageText.equals("ももも")){
@@ -49,12 +49,14 @@ public class LineBotMain {
         */
 
     		return new TextMessage(reWord);
+    		/*
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 			return new TextMessage("エラー");
 
 		}
+		*/
     }
 
     @EventMapping
