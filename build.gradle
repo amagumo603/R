@@ -1,0 +1,27 @@
+apply plugin: "java"
+apply plugin: "application"
+apply plugin: "eclipse"
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile "com.google.api-client:google-api-client:1.22.0"
+    compile "com.google.oauth-client:google-oauth-client-jetty:1.22.0"
+    compile "com.google.apis:google-api-services-drive:v3-rev49-1.22.0"
+    compile "com.google.apis:google-api-services-sheets:v4-rev34-1.22.0"
+    compile "org.slf4j:slf4j-api:1.7.21"
+    compile "org.slf4j:jul-to-slf4j:1.7.21" // Googleƒ‰ƒCƒuƒ‰ƒŠ‚ªjava.util.logging‚ðŽg‚Á‚Ä‚¢‚é‚½‚ß
+    compile "ch.qos.logback:logback-classic:1.1.7"
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
+mainClassName = "mytestapp1.MyTestApp1"
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "3.1"
+}
