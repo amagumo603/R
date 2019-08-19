@@ -71,11 +71,8 @@
             <artifactId>google-api-client</artifactId>
             <version>1.20.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.google</groupId>
-            <artifactId>gdata-java-client</artifactId>
-            <version>1.40.0</version>
-        </dependency>
+
+
 
   </dependencies>
   <build>
