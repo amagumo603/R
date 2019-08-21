@@ -71,7 +71,11 @@
             <artifactId>google-api-client</artifactId>
             <version>1.20.0</version>
         </dependency>
-
+<dependency>
+	<groupId>com.google.gdatata</groupId>
+	<artifactId>core</artifactId>
+	<version>1.47.1</version>
+</dependency>
   </dependencies>
   <build>
         <plugins>
