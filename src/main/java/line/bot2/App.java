@@ -22,9 +22,9 @@ public class App {
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);
-        /*
-        SpreadsheetSearch sss = new SpreadsheetSearch();
 
+        SpreadsheetSearch sss = new SpreadsheetSearch();
+        /*
         try {
 			sss.spreadSearch();
 		} catch (IOException | ServiceException e) {
