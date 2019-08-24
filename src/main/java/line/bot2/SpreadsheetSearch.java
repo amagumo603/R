@@ -1,8 +1,5 @@
 package line.bot2;
 
-import com.google.gdata.client.spreadsheet.SpreadsheetService;
-import com.google.gdata.util.AuthenticationException;
-
 public class SpreadsheetSearch {
     public void  spreadSearch()  {
         System.out.println("spreadSearchMethodIN");
@@ -12,7 +9,7 @@ public class SpreadsheetSearch {
         // Google AppsもしくはGoogleアカウントのメールアドレスとパスワードを設定
         String username = "hard.rain.frog@gmail.com";
         String password = "79827913Tz";
-
+        /*
 
         // Spreadsheetsサービスへの認証を行う
         SpreadsheetService service = new SpreadsheetService(applicationName);
@@ -24,7 +21,7 @@ public class SpreadsheetSearch {
 		}
 
         System.out.println("グーぐるスプレッドシートにログイン成功");
-        /*
+
         // 検索対象のスプレッドシートを取得
         FeedURLFactory urlFactory = FeedURLFactory.getDefault();
         SpreadsheetQuery spreadsheetQuery = new SpreadsheetQuery(urlFactory
