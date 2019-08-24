@@ -2,16 +2,7 @@ package line.bot2;
 
 import java.io.IOException;
 
-import com.google.gdata.client.spreadsheet.FeedURLFactory;
-import com.google.gdata.client.spreadsheet.ListQuery;
-import com.google.gdata.client.spreadsheet.SpreadsheetQuery;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
-import com.google.gdata.data.spreadsheet.CustomElementCollection;
-import com.google.gdata.data.spreadsheet.ListEntry;
-import com.google.gdata.data.spreadsheet.ListFeed;
-import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
-import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
-import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.util.ServiceException;
 
 public class SpreadsheetSearch {
@@ -28,7 +19,7 @@ public class SpreadsheetSearch {
         // Spreadsheetsサービスへの認証を行う
         SpreadsheetService service = new SpreadsheetService(applicationName);
         service.setUserCredentials(username, password);
-
+/*
         System.out.println("グーぐるスプレッドシートにログイン成功");
 
         // 検索対象のスプレッドシートを取得
@@ -54,5 +45,7 @@ public class SpreadsheetSearch {
         System.out.println("名称：" + elements.getValue("名称"));
         System.out.println("数量：" + elements.getValue("数量"));
         System.out.println("価格：" + elements.getValue("価格"));
+
+        */
     }
 }
