@@ -15,7 +15,7 @@ import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.util.ServiceException;
 
 public class SpreadsheetSearch {
-    public static void main(String[] args) throws IOException, ServiceException {
+    public static void main2(String[] args) throws IOException, ServiceException {
         // このアプリケーションの名称。任意の名前を設定
         String applicationName = "spreadsheet-application";
         // Google AppsもしくはGoogleアカウントのメールアドレスとパスワードを設定
