@@ -2,13 +2,12 @@ package line.bot2;
 
 import java.io.IOException;
 
-import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.util.ServiceException;
 
 public class SpreadsheetSearch {
     public void  spreadSearch() throws IOException, ServiceException {
         System.out.println("spreadSearchMethodIN");
-
+        /*
         // このアプリケーションの名称。任意の名前を設定
         String applicationName = "spreadsheet-application";
         // Google AppsもしくはGoogleアカウントのメールアドレスとパスワードを設定
@@ -19,7 +18,7 @@ public class SpreadsheetSearch {
         // Spreadsheetsサービスへの認証を行う
         SpreadsheetService service = new SpreadsheetService(applicationName);
         service.setUserCredentials(username, password);
-/*
+
         System.out.println("グーぐるスプレッドシートにログイン成功");
 
         // 検索対象のスプレッドシートを取得
