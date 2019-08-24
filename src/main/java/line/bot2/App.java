@@ -1,9 +1,11 @@
 package line.bot2;
+import java.io.IOException;
 import java.util.Random;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.google.gdata.util.ServiceException;
 import com.linecorp.bot.model.event.Event;
 import com.linecorp.bot.model.event.MessageEvent;
 import com.linecorp.bot.model.event.message.TextMessageContent;
@@ -22,6 +24,14 @@ public class App {
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("event: " + event);
+        SpreadsheetSearch sss = new SpreadsheetSearch();
+
+        try {
+			sss.spreadSearch();
+		} catch (IOException | ServiceException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
         final String originalMessageText = event.getMessage().getText();
     	Random random = new Random();
     	if(originalMessageText.equals("ももも")){
