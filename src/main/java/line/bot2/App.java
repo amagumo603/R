@@ -21,7 +21,7 @@ public class App {
 
     @EventMapping
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
-        System.out.println("event: " + event);
+        System.out.println("eventTEST: " + event);
 
         SpreadsheetSearch sss = new SpreadsheetSearch();
 
