@@ -1,11 +1,7 @@
 package line.bot2;
 
-import java.io.IOException;
-
-import com.google.gdata.util.ServiceException;
-
 public class SpreadsheetSearch {
-    public void  spreadSearch() throws IOException, ServiceException {
+    public void  spreadSearch()  {
         System.out.println("spreadSearchMethodIN");
         /*
         // このアプリケーションの名称。任意の名前を設定

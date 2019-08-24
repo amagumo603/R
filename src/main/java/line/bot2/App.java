@@ -24,14 +24,9 @@ public class App {
         System.out.println("event: " + event);
 
         SpreadsheetSearch sss = new SpreadsheetSearch();
-        /*
-        try {
+
 			sss.spreadSearch();
-		} catch (IOException | ServiceException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-		*/
+
         final String originalMessageText = event.getMessage().getText();
     	Random random = new Random();
     	if(originalMessageText.equals("ももも")){
