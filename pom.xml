@@ -65,24 +65,19 @@
             <artifactId>line-bot-spring-boot</artifactId>
             <version>1.11.0</version>
         </dependency>
+
         <dependency>
             <groupId>com.google.api-client</groupId>
             <artifactId>google-api-client</artifactId>
             <version>1.20.0</version>
         </dependency>
         <dependency>
-            <groupId>com.google.gdata</groupId>
-            <artifactId>core</artifactId>
-            <version>1.47.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.google.code.findbugs</groupId>
-                    <artifactId>jsr305</artifactId>
-                </exclusion>
-            </exclusions>
+        	<groupId>jsr305.jar</groupId>
+        	<artifactId>jsr305.jar</artifactId>
+        	<version>1.0</version>
+        	<scope>system</scope>
+        	<systemPath>${basedir}/lib/jsr305.jar</systemPath>
         </dependency>
-
-
 
 </dependencies>
 
