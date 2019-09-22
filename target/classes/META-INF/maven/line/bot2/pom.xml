@@ -68,48 +68,7 @@
 
 
 
-        <dependency>
-        	<groupId>gdata-client-1.0.jar</groupId>
-        	<artifactId>gdata-client-1.0.jar</artifactId>
-        	<version>1.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/gdata-client-1.0.jar</systemPath>
-        </dependency>
-        <dependency>
-        	<groupId>gdata-client-meta-1.0.jar</groupId>
-        	<artifactId>gdata-client-meta-1.0.jar</artifactId>
-        	<version>1.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/gdata-client-meta-1.0.jar</systemPath>
-        </dependency>
-        <dependency>
-        	<groupId>gdata-core-1.0.jar</groupId>
-        	<artifactId>gdata-core-1.0.jar</artifactId>
-        	<version>1.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/gdata-core-1.0.jar</systemPath>
-        </dependency>
-        <dependency>
-        	<groupId>gdata-spreadsheet-3.0.jar</groupId>
-        	<artifactId>gdata-spreadsheet-3.0.jar</artifactId>
-        	<version>1.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/gdata-spreadsheet-3.0.jar</systemPath>
-        </dependency>
-        <dependency>
-        	<groupId>gdata-spreadsheet-meta-3.0.jar</groupId>
-        	<artifactId>gdata-spreadsheet-meta-3.0.jar</artifactId>
-        	<version>1.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/gdata-spreadsheet-meta-3.0.jar</systemPath>
-        </dependency>
-        <dependency>
-        	<groupId>jsr305.jar</groupId>
-        	<artifactId>jsr305.jar</artifactId>
-        	<version>1.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/jsr305.jar</systemPath>
-        </dependency>
+
 </dependencies>
 
 
