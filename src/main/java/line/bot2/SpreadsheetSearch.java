@@ -1,11 +1,20 @@
 package line.bot2;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.google.gdata.client.spreadsheet.SpreadsheetService;
+import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
+import com.google.gdata.data.spreadsheet.WorksheetEntry;
+
 public class SpreadsheetSearch {
 
 
 
-    public static void searchUnit(String[] arg) {
-    	/*
+    public static void searchUnit(String arg) {
+
     	SpreadsheetTool aut = new SpreadsheetTool();
     	try {
     	    System.out.println("main start");
@@ -26,23 +35,25 @@ public class SpreadsheetSearch {
 
     	    // insert
     	    Map<String, Object> insertValues1 = new HashMap<>();
-    	    insertValues1.put("品目", "電池");
+    	    insertValues1.put("品目", arg);
     	    insertValues1.put("登録日時", sdf.format(date));
     	    insertValues1.put("削除日時", "未実装"); //TODO いずれ実装する
 
     	 // データを書き込む
-    	 //   aut.insertDataRow(service, wsEntry, insertValues1);
-
+    	    aut.insertDataRow(service, wsEntry, insertValues1);
+/*
     	    List<ListEntry> retValue = aut.allGetCell(service,wsEntry);
     	    for(ListEntry ent : retValue){
 
 
     	    System.out.println(ent.getCustomElements().getValue("品目"));
+
     	    }
+*/
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-		*/
+
     }
 }

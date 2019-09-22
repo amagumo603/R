@@ -23,11 +23,15 @@ public class App {
     public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         System.out.println("eventTEST: " + event);
 
-        SpreadsheetSearch sss = new SpreadsheetSearch();
 
-			//sss.spreadSearch();
+
+
 
         final String originalMessageText = event.getMessage().getText();
+
+        SpreadsheetSearch sss = new SpreadsheetSearch();
+		sss.searchUnit(originalMessageText);
+
     	Random random = new Random();
     	if(originalMessageText.equals("ももも")){
     		return new TextMessage("もちもち");
