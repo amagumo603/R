@@ -13,7 +13,7 @@ public class Const {
 
 	// アカウント
 	static final String ACCOUNT_P12_ID = "hamsyatyo@amagumo.iam.gserviceaccount.com";
-	static final File P12FILE = new File("src/main/resources/Amagumo-a21c67f1c2f0.p12");
+	static final File P12FILE = new File("src/resources/java/Amagumo-a21c67f1c2f0.p12");
 
 
 	// 認証スコープ
