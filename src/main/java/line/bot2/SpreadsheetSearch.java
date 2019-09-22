@@ -1,51 +1,48 @@
 package line.bot2;
 
 public class SpreadsheetSearch {
-    public void  spreadSearch()  {
-        System.out.println("spreadSearchMethodIN");
 
-        // このアプリケーションの名称。任意の名前を設定
-        String applicationName = "spreadsheet-application";
-        // Google AppsもしくはGoogleアカウントのメールアドレスとパスワードを設定
-        String username = "hard.rain.frog@gmail.com";
-        String password = "79827913Tz";
-        /*
 
-        // Spreadsheetsサービスへの認証を行う
-        SpreadsheetService service = new SpreadsheetService(applicationName);
-        try {
-			service.setUserCredentials(username, password);
-		} catch (AuthenticationException e) {
+
+    public static void searchUnit(String[] arg) {
+    	/*
+    	SpreadsheetTool aut = new SpreadsheetTool();
+    	try {
+    	    System.out.println("main start");
+
+    	    SpreadsheetService service = aut.getService();
+
+    	    String ssName = "買物表";
+    	    String wsName = "必要なもの";
+
+    	    SpreadsheetEntry ssEntry = aut.findSpreadsheetByName(service, ssName);
+
+    	    // 作業Sheetを検索する
+    	    WorksheetEntry wsEntry = aut.findWorksheetByName(service, ssEntry, wsName);
+
+    	    // 日付情報の取得
+    	    Date date = new Date();
+    	    SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+    	    // insert
+    	    Map<String, Object> insertValues1 = new HashMap<>();
+    	    insertValues1.put("品目", "電池");
+    	    insertValues1.put("登録日時", sdf.format(date));
+    	    insertValues1.put("削除日時", "未実装"); //TODO いずれ実装する
+
+    	 // データを書き込む
+    	 //   aut.insertDataRow(service, wsEntry, insertValues1);
+
+    	    List<ListEntry> retValue = aut.allGetCell(service,wsEntry);
+    	    for(ListEntry ent : retValue){
+
+
+    	    System.out.println(ent.getCustomElements().getValue("品目"));
+    	    }
+		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-
-        System.out.println("グーぐるスプレッドシートにログイン成功");
-
-        // 検索対象のスプレッドシートを取得
-        FeedURLFactory urlFactory = FeedURLFactory.getDefault();
-        SpreadsheetQuery spreadsheetQuery = new SpreadsheetQuery(urlFactory
-                .getSpreadsheetsFeedUrl());
-        spreadsheetQuery.setTitleQuery("買物表"); // 検索対象のスプレッドシート名を指定している
-        SpreadsheetFeed spreadsheetFeed = service.query(spreadsheetQuery,
-                SpreadsheetFeed.class);
-        SpreadsheetEntry spreadsheetEntry = spreadsheetFeed.getEntries().get(0);
-        System.out.println("名前：" + spreadsheetEntry.getTitle().getPlainText());
-
-        // 検索対象のワークシートを取得
-        WorksheetEntry worksheetEntry = spreadsheetEntry.getDefaultWorksheet();
-
-        System.out.println("ワークシート取得成功");
-        // ワークシート内を検索
-        ListQuery listQuery = new ListQuery(worksheetEntry.getListFeedUrl());
-        listQuery.setSpreadsheetQuery("名称 = りんご");
-        ListFeed listFeed = service.query(listQuery, ListFeed.class);
-        ListEntry listEntry = listFeed.getEntries().get(0);
-        CustomElementCollection elements = listEntry.getCustomElements();
-        System.out.println("名称：" + elements.getValue("名称"));
-        System.out.println("数量：" + elements.getValue("数量"));
-        System.out.println("価格：" + elements.getValue("価格"));
-
-        */
+		*/
     }
 }
