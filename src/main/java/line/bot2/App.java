@@ -27,7 +27,7 @@ public class App {
         System.out.println("eventTEST: " + event);
 
 
-
+        SpreadsheetTool aut = new SpreadsheetTool();
 
 
         final String originalMessageText = event.getMessage().getText();
