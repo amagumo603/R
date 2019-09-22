@@ -1,5 +1,7 @@
 package line.bot2;
 
+import java.util.List;
+
 import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
@@ -7,6 +9,8 @@ import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
+import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
+import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 
 public class SpreadsheetTool {
 
@@ -63,28 +67,28 @@ public class SpreadsheetTool {
 		  return service;
 		}
 
-//	/**
-//	* 利用可能なシートを取得する
-// 	* @param service
-// 	* @return
-//	* @throws Exception
-// 	*/
-//	public static List<SpreadsheetEntry> findAllSpreadsheets(SpreadsheetService service) throws Exception {
-//		  System.out.println("findAllSpreadsheets in");
-//
-//		  SpreadsheetFeed feed = service.getFeed(Const.SPREADSHEET_FEED_URL, SpreadsheetFeed.class);
-//
-//		  List<SpreadsheetEntry> spreadsheets = feed.getEntries();
-//
-//		  // debug dump
-//		  for (SpreadsheetEntry spreadsheet : spreadsheets) {
-//		    System.out.println("title: " + spreadsheet.getTitle().getPlainText());
-//		  }
-//
-//		  System.out.println("findAllSpreadsheets out");
-//		  return spreadsheets;
-//		}
-//
+	/**
+	* 利用可能なシートを取得する
+ 	* @param service
+ 	* @return
+	* @throws Exception
+ 	*/
+	public static List<SpreadsheetEntry> findAllSpreadsheets(SpreadsheetService service) throws Exception {
+		  System.out.println("findAllSpreadsheets in");
+
+		  SpreadsheetFeed feed = service.getFeed(Const.SPREADSHEET_FEED_URL, SpreadsheetFeed.class);
+
+		  List<SpreadsheetEntry> spreadsheets = feed.getEntries();
+
+		  // debug dump
+		  for (SpreadsheetEntry spreadsheet : spreadsheets) {
+		    System.out.println("title: " + spreadsheet.getTitle().getPlainText());
+		  }
+
+		  System.out.println("findAllSpreadsheets out");
+		  return spreadsheets;
+		}
+
 //	/**
 //	 * スプレッドシート名を指定して検索
 //	 * @param service
