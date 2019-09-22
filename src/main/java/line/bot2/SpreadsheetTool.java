@@ -12,9 +12,7 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.gdata.client.spreadsheet.SpreadsheetQuery;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
-import com.google.gdata.client.spreadsheet.WorksheetQuery;
 import com.google.gdata.data.spreadsheet.CellEntry;
 import com.google.gdata.data.spreadsheet.CellFeed;
 import com.google.gdata.data.spreadsheet.ListEntry;
@@ -22,7 +20,6 @@ import com.google.gdata.data.spreadsheet.ListFeed;
 import com.google.gdata.data.spreadsheet.SpreadsheetEntry;
 import com.google.gdata.data.spreadsheet.SpreadsheetFeed;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
-import com.google.gdata.data.spreadsheet.WorksheetFeed;
 import com.google.gdata.util.ServiceException;
 
 public class SpreadsheetTool {
@@ -109,18 +106,18 @@ public class SpreadsheetTool {
 	 * @return
 	 * @throws Exception
 	 */
-	public static SpreadsheetEntry findSpreadsheetByName(SpreadsheetService service, String spreadsheetName) throws Exception {
-		  System.out.println("findSpreadsheetByName in");
-		  SpreadsheetQuery sheetQuery = new SpreadsheetQuery(Const.SPREADSHEET_FEED_URL);
-		  sheetQuery.setTitleQuery(spreadsheetName);
-		  SpreadsheetFeed feed = service.query(sheetQuery, SpreadsheetFeed.class);
-		  SpreadsheetEntry ssEntry = null;
-		  if (feed.getEntries().size() > 0) {
-		    ssEntry = feed.getEntries().get(0);
-		  }
-		  System.out.println("findSpreadsheetByName out");
-		  return ssEntry;
-		}
+//	public static SpreadsheetEntry findSpreadsheetByName(SpreadsheetService service, String spreadsheetName) throws Exception {
+//		  System.out.println("findSpreadsheetByName in");
+//		  SpreadsheetQuery sheetQuery = new SpreadsheetQuery(Const.SPREADSHEET_FEED_URL);
+//		  sheetQuery.setTitleQuery(spreadsheetName);
+//		  SpreadsheetFeed feed = service.query(sheetQuery, SpreadsheetFeed.class);
+//		  SpreadsheetEntry ssEntry = null;
+//		  if (feed.getEntries().size() > 0) {
+//		    ssEntry = feed.getEntries().get(0);
+//		  }
+//		  System.out.println("findSpreadsheetByName out");
+//		  return ssEntry;
+//		}
 
 	/**
 	 * ワークシート名で検索
@@ -130,18 +127,18 @@ public class SpreadsheetTool {
 	 * @return
 	 * @throws Exception
 	 */
-	public static WorksheetEntry findWorksheetByName(SpreadsheetService service, SpreadsheetEntry ssEntry, String sheetName) throws Exception {
-		  System.out.println("findWorksheetByName in");
-		  WorksheetQuery worksheetQuery = new WorksheetQuery(ssEntry.getWorksheetFeedUrl());
-		  worksheetQuery.setTitleQuery(sheetName);
-		  WorksheetFeed feed = service.query(worksheetQuery, WorksheetFeed.class);
-		  WorksheetEntry wsEntry = null;
-		  if (feed.getEntries().size() > 0){
-		    wsEntry = feed.getEntries().get(0);
-		  }
-		  System.out.println("findWorksheetByName out");
-		  return wsEntry;
-		}
+//	public static WorksheetEntry findWorksheetByName(SpreadsheetService service, SpreadsheetEntry ssEntry, String sheetName) throws Exception {
+//		  System.out.println("findWorksheetByName in");
+//		  WorksheetQuery worksheetQuery = new WorksheetQuery(ssEntry.getWorksheetFeedUrl());
+//		  worksheetQuery.setTitleQuery(sheetName);
+//		  WorksheetFeed feed = service.query(worksheetQuery, WorksheetFeed.class);
+//		  WorksheetEntry wsEntry = null;
+//		  if (feed.getEntries().size() > 0){
+//		    wsEntry = feed.getEntries().get(0);
+//		  }
+//		  System.out.println("findWorksheetByName out");
+//		  return wsEntry;
+//		}
 
 	/**
 	 * ワークシートのタイトル行を追加.

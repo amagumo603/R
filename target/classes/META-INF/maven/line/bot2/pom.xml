@@ -88,21 +88,8 @@
         	<systemPath>${basedir}/lib/gdata-core-1.0.jar</systemPath>
         </dependency>
 
-        <dependency>
-        	<groupId>gdata-spreadsheet-3.0.jar</groupId>
-        	<artifactId>gdata-spreadsheet-3.0.jar</artifactId>
-        	<version>3.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/gdata-spreadsheet-3.0.jar</systemPath>
-        </dependency>
 
-        <dependency>
-        	<groupId>gdata-client-1.0.jar</groupId>
-        	<artifactId>gdata-client-1.0.jar</artifactId>
-        	<version>1.0</version>
-        	<scope>system</scope>
-        	<systemPath>${basedir}/lib/gdata-client-1.0.jar</systemPath>
-        </dependency>
+
 </dependencies>
 
 
