@@ -71,12 +71,19 @@
             <artifactId>google-api-client</artifactId>
             <version>1.20.0</version>
         </dependency>
+
         <dependency>
         	<groupId>jsr305.jar</groupId>
         	<artifactId>jsr305.jar</artifactId>
         	<version>1.0</version>
         	<scope>system</scope>
         	<systemPath>${basedir}/lib/jsr305.jar</systemPath>
+        </dependency>
+
+        <dependency>
+        	<groupId>com.google.gdata</groupId>
+        	<artifactId>core</artifactId>
+        	<version>1.47.1</version>
         </dependency>
 
 </dependencies>
