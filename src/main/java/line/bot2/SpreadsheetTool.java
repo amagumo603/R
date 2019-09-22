@@ -6,6 +6,7 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.gdata.client.spreadsheet.SpreadsheetService;
 
 public class SpreadsheetTool {
 
@@ -37,30 +38,30 @@ public class SpreadsheetTool {
 		  return credential;
 		}
 
-///**
-// * サービスを取得する
-// * @return
-// * @throws Exception
-// */
-//
-//	public static SpreadsheetService getService() throws Exception {
-//		  System.out.println("service in");
-//
-//		  SpreadsheetService service = new SpreadsheetService(Const.APPLICATION_NAME);
-//		  service.setProtocolVersion(SpreadsheetService.Versions.V3);
-//
-//		  Credential credential = authorize();
-//		  service.setOAuth2Credentials(credential);
-//
-//		  // debug dump
-//		  System.out.println("Schema: " + service.getSchema().toString());
-//		  System.out.println("Protocol: " + service.getProtocolVersion().getVersionString());
-//		  System.out.println("ServiceVersion: " + service.getServiceVersion());
-//
-//		  System.out.println("service out");
-//
-//		  return service;
-//		}
+/**
+ * サービスを取得する
+ * @return
+ * @throws Exception
+ */
+
+	public static SpreadsheetService getService() throws Exception {
+		  System.out.println("service in");
+
+		  SpreadsheetService service = new SpreadsheetService(Const.APPLICATION_NAME);
+		  service.setProtocolVersion(SpreadsheetService.Versions.V3);
+
+		  Credential credential = authorize();
+		  service.setOAuth2Credentials(credential);
+
+		  // debug dump
+		  System.out.println("Schema: " + service.getSchema().toString());
+		  System.out.println("Protocol: " + service.getProtocolVersion().getVersionString());
+		  System.out.println("ServiceVersion: " + service.getServiceVersion());
+
+		  System.out.println("service out");
+
+		  return service;
+		}
 
 //	/**
 //	* 利用可能なシートを取得する
