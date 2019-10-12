@@ -33,6 +33,8 @@ public class App {
 
 		//SpreadsheetSearch sss = new SpreadsheetSearch();
 		//sss.searchUnit(originalMessageText);
+		s3Tool ama = new s3Tool();
+		ama.s3Service(originalMessageText);
 
 		Random random = new Random();
 		if (originalMessageText.equals("ももも")) {
@@ -42,9 +44,6 @@ public class App {
 		if (randomValue == 0) {
 			return new TextMessage("ももも");
 		}
-
-		s3Tool ama = new s3Tool();
-		ama.s3Service(originalMessageText);
 
 		return new TextMessage(event.getMessage().getText());
 	}

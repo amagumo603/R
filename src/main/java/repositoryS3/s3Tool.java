@@ -69,16 +69,6 @@ public class s3Tool {
 
 	private void inputText(String messageText) {
 
-		// Fileクラスをインスタンス化
-		File file2 = new File("/tmp/memo.txt");
-
-		// 指定されたパスがファイルかどうかを判定
-		if (!file2.isFile()) {
-			// ディレクトリを指定した場合は処理終了
-			System.out.println("ファイル以外を指定");
-			return;
-		}
-
 		try {
 			FileWriter file = new FileWriter("/tmp/memo.txt", true);
 
