@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="line.bot2.AppTest" time="0.001" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="line.bot2.AppTest" time="0" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="12.0.1+12"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 7"/>
-    <property name="classworlds.conf" value="C:\pleiades\pleiades\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf14724947086556036501.tmp"/>
+    <property name="classworlds.conf" value="C:\pleiades\pleiades\workspace\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf13902783196657980581.tmp"/>
     <property name="sun.jnu.encoding" value="MS932"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-12.0.1\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jdk-12.0.1/bin/server;C:/Program Files/Java/jdk-12.0.1/bin;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\12.0\DLLShared\;C:\Program Files (x86)\Roxio 2010\OEM\AudioCore\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;c:\Program Files (x86)\Common Files\Ulead Systems\MPEG;C:\Program Files\Git\cmd;C:\Program Files\TortoiseGit\bin;C:\Ruby25-x64\bin;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\heroku\bin;C:\Program Files\Java\jdk-12.0.1\bin;C:\pleiades\pleiades\eclipse;;."/>
     <property name="jdk.debug" value="release"/>
@@ -59,5 +59,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testApp" classname="line.bot2.AppTest" time="0.001"/>
+  <testcase name="testApp" classname="line.bot2.AppTest" time="0"/>
 </testsuite>

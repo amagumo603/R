@@ -12,10 +12,15 @@ import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
+import repositoryS3.s3Tool;
+
 @SpringBootApplication
 @LineMessageHandler
 public class App {
+
 	public static void main(String[] args) {
+		//s3Tool ama = new s3Tool();
+		//ama.s3Service();
 		SpringApplication.run(App.class, args);
 		System.out.println("hello");
 	}
@@ -25,7 +30,8 @@ public class App {
 		System.out.println("eventTEST: " + event);
 
 		final String originalMessageText = event.getMessage().getText();
-
+		s3Tool ama = new s3Tool();
+		ama.s3Service();
 		//SpreadsheetSearch sss = new SpreadsheetSearch();
 		//sss.searchUnit(originalMessageText);
 
