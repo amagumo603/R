@@ -2,6 +2,7 @@ package line.bot2;
 
 import java.util.Random;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.linecorp.bot.model.event.Event;
@@ -14,14 +15,10 @@ import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 @SpringBootApplication
 @LineMessageHandler
 public class App {
-	//	public static void main(String[] args) {
-	//		SpringApplication.run(App.class, args);
-	//		System.out.println("hello");
-	//		//        SpreadsheetSearch sss = new SpreadsheetSearch();
-	//		//		sss.searchUnit("お菓子");
-	//		//		SpreadsheetTool aut = new SpreadsheetTool();
-	//
-	//	}
+	public static void main(String[] args) {
+		SpringApplication.run(App.class, args);
+		System.out.println("hello");
+	}
 
 	@EventMapping
 	public TextMessage handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
