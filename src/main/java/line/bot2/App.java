@@ -20,7 +20,7 @@ public class App {
 
 	public static void main(String[] args) {
 		//		s3Tool ama = new s3Tool();
-		//		ama.s3Service("messer");
+		//		ama.s3Service("Messer");
 		SpringApplication.run(App.class, args);
 		System.out.println("hello");
 	}

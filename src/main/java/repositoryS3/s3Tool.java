@@ -1,12 +1,10 @@
 package repositoryS3;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import com.amazonaws.ClientConfiguration;
@@ -29,8 +27,6 @@ public class s3Tool {
 
 	public void s3Service(String messageText) {
 
-		inputText(messageText);
-
 		AmazonS3 client = auth();
 
 		ObjectListing objListing = client.listObjects(Const.S3_BUCKET_NAME); // バケット名を指定
@@ -38,6 +34,7 @@ public class s3Tool {
 
 		try {
 			download();
+			inputText(messageText);
 			upload(client);
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
@@ -55,8 +52,6 @@ public class s3Tool {
 
 		// クライアント設定
 		ClientConfiguration clientConfig = new ClientConfiguration();
-		//clientConfig.setProxyHost("[proxyHost]");
-		//clientConfig.setProxyPort([portNo]);
 
 		// エンドポイント設定
 		EndpointConfiguration endpointConfiguration = new EndpointConfiguration(Const.S3_SERVICE_END_POINT,
@@ -73,14 +68,23 @@ public class s3Tool {
 	}
 
 	private void inputText(String messageText) {
-		try {
-			FileWriter file = new FileWriter("src/resources/java/memo.txt");
 
-			// PrintWriterクラスのオブジェクトを生成する
-			PrintWriter pw = new PrintWriter(new BufferedWriter(file), true);
+		// Fileクラスをインスタンス化
+		File file2 = new File("/tmp/memo.txt");
+
+		// 指定されたパスがファイルかどうかを判定
+		if (!file2.isFile()) {
+			// ディレクトリを指定した場合は処理終了
+			System.out.println("ファイル以外を指定");
+			return;
+		}
+
+		try {
+			FileWriter file = new FileWriter("/tmp/memo.txt", true);
 
 			//ファイルに書き込む
-			pw.println(messageText);
+			file.write(messageText);
+			file.close();
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -92,7 +96,7 @@ public class s3Tool {
 	private void upload(AmazonS3 client) throws Exception {
 		System.out.println("upload start");
 
-		File file = new File("src/resources/java/memo.txt");
+		File file = new File("/tmp/memo.txt");
 		FileInputStream fis = new FileInputStream(file);
 
 		ObjectMetadata om = new ObjectMetadata();
@@ -124,7 +128,7 @@ public class s3Tool {
 
 		S3Object object = client.getObject(getRequest);
 
-		FileOutputStream fos = new FileOutputStream(new File("src/resources/java/memo.txt"));
+		FileOutputStream fos = new FileOutputStream(new File("/tmp/memo.txt"));
 		IOUtils.copy(object.getObjectContent(), fos);
 
 		fos.close();
