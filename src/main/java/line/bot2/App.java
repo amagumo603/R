@@ -30,8 +30,7 @@ public class App {
 		System.out.println("eventTEST: " + event);
 
 		final String originalMessageText = event.getMessage().getText();
-		s3Tool ama = new s3Tool();
-		ama.s3Service();
+
 		//SpreadsheetSearch sss = new SpreadsheetSearch();
 		//sss.searchUnit(originalMessageText);
 
@@ -43,6 +42,10 @@ public class App {
 		if (randomValue == 0) {
 			return new TextMessage("ももも");
 		}
+
+		s3Tool ama = new s3Tool();
+		ama.s3Service(originalMessageText);
+
 		return new TextMessage(event.getMessage().getText());
 	}
 

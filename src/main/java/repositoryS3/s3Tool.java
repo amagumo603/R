@@ -1,8 +1,12 @@
 package repositoryS3;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import com.amazonaws.ClientConfiguration;
@@ -23,7 +27,10 @@ import com.amazonaws.util.IOUtils;
 
 public class s3Tool {
 
-	public void s3Service() {
+	public void s3Service(String messageText) {
+
+		inputText(messageText);
+
 		AmazonS3 client = auth();
 
 		ObjectListing objListing = client.listObjects(Const.S3_BUCKET_NAME); // バケット名を指定
@@ -45,7 +52,7 @@ public class s3Tool {
 	}
 
 	// 認証処理
-	private static AmazonS3 auth() {
+	private AmazonS3 auth() {
 		System.out.println("auth start");
 
 		// AWSの認証情報
@@ -70,8 +77,26 @@ public class s3Tool {
 		return client;
 	}
 
+	private void inputText(String messageText) {
+		try {
+			FileWriter file = new FileWriter("src/resources/java/memo.txt");
+
+			// PrintWriterクラスのオブジェクトを生成する
+			PrintWriter pw = new PrintWriter(new BufferedWriter(file), true);
+
+			//ファイルに書き込む
+			pw.println("apple");
+			pw.println("orange");
+			pw.println(messageText);
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+	}
+
 	// ｱｯﾌﾟﾛｰﾄﾞ処理
-	private static void upload(AmazonS3 client) throws Exception {
+	private void upload(AmazonS3 client) throws Exception {
 		System.out.println("upload start");
 
 		File file = new File("src/resources/java/memo.txt");
@@ -96,7 +121,7 @@ public class s3Tool {
 	}
 
 	// ﾀﾞｳﾝﾛｰﾄﾞ処理
-	private static void download() throws Exception {
+	private void download() throws Exception {
 		System.out.println("download start");
 
 		// 認証処理
