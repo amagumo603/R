@@ -19,8 +19,8 @@ import repositoryS3.s3Tool;
 public class App {
 
 	public static void main(String[] args) {
-		//s3Tool ama = new s3Tool();
-		//ama.s3Service();
+		//		s3Tool ama = new s3Tool();
+		//		ama.s3Service("messer");
 		SpringApplication.run(App.class, args);
 		System.out.println("hello");
 	}

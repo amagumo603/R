@@ -36,13 +36,8 @@ public class s3Tool {
 		ObjectListing objListing = client.listObjects(Const.S3_BUCKET_NAME); // バケット名を指定
 		List<S3ObjectSummary> objList = objListing.getObjectSummaries();
 
-		// ファイル一覧を出力
-		for (S3ObjectSummary obj : objList) {
-			// キー(ファイルパス)・サイズ・最終更新日
-			System.out.println("Key [" + obj.getKey() + "] / Size [" + obj.getSize() + " B] / Last Modified ["
-					+ obj.getLastModified() + "]");
-		}
 		try {
+			download();
 			upload(client);
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
@@ -85,8 +80,6 @@ public class s3Tool {
 			PrintWriter pw = new PrintWriter(new BufferedWriter(file), true);
 
 			//ファイルに書き込む
-			pw.println("apple");
-			pw.println("orange");
 			pw.println(messageText);
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
@@ -127,11 +120,11 @@ public class s3Tool {
 		// 認証処理
 		AmazonS3 client = auth();
 
-		final GetObjectRequest getRequest = new GetObjectRequest(Const.S3_BUCKET_NAME, "[ダウンロードファイル名");
+		final GetObjectRequest getRequest = new GetObjectRequest(Const.S3_BUCKET_NAME, "memo.txt");
 
 		S3Object object = client.getObject(getRequest);
 
-		FileOutputStream fos = new FileOutputStream(new File("[出力先パス]"));
+		FileOutputStream fos = new FileOutputStream(new File("src/resources/java/memo.txt"));
 		IOUtils.copy(object.getObjectContent(), fos);
 
 		fos.close();
