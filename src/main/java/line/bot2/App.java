@@ -12,7 +12,7 @@ import com.linecorp.bot.model.message.TextMessage;
 import com.linecorp.bot.spring.boot.annotation.EventMapping;
 import com.linecorp.bot.spring.boot.annotation.LineMessageHandler;
 
-import repositoryS3.s3Tool;
+import repositoryS3.S3Service;
 
 @SpringBootApplication
 @LineMessageHandler
@@ -31,12 +31,10 @@ public class App {
 
 		final String originalMessageText = event.getMessage().getText();
 
-		//SpreadsheetSearch sss = new SpreadsheetSearch();
-		//sss.searchUnit(originalMessageText);
-		System.out.println("ここはちぇっく１");
-		s3Tool ama = new s3Tool();
+		// S3二テキストを登録
+		S3Service ama = new S3Service();
 		ama.s3Service(originalMessageText);
-		System.out.println("ここはちぇっく２");
+
 		Random random = new Random();
 		if (originalMessageText.equals("ももも")) {
 			return new TextMessage("もちもち");

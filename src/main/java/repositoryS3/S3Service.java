@@ -1,10 +1,14 @@
 package repositoryS3;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import com.amazonaws.ClientConfiguration;
@@ -23,29 +27,42 @@ import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.amazonaws.util.IOUtils;
 
-public class s3Tool {
+public class S3Service {
 
-	public void s3Service(String messageText) {
-		System.out.println("テスト開始");
+	/**
+	 * S3と連携するサービス
+	 * @param messageText
+	 */
+	public String s3Service(String messageText) {
 		AmazonS3 client = auth();
 
 		ObjectListing objListing = client.listObjects(Const.S3_BUCKET_NAME); // バケット名を指定
 		List<S3ObjectSummary> objList = objListing.getObjectSummaries();
 
 		try {
-			download();
-			inputText(messageText);
-			upload(client);
+			if (messageText.equals("一覧")) {
+				download();
+				Path file = Paths.get("/tmp/memo.txt");
+				String text = Files.readString(file);
+
+				return text;
+			} else {
+				download();
+				inputText(messageText);
+				upload(client);
+				return "登録完了٩(ˊᗜˋ*)و";
+			}
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 		;
+		return "";
 	}
 
 	// 認証処理
 	private AmazonS3 auth() {
-		System.out.println("auth start");
+		System.out.println("auth 開始");
 
 		// AWSの認証情報
 		AWSCredentials credentials = new BasicAWSCredentials(Const.S3_ACCESS_KEY, Const.S3_SECRET_KEY);
@@ -63,18 +80,24 @@ public class s3Tool {
 				.withClientConfiguration(clientConfig)
 				.withEndpointConfiguration(endpointConfiguration).build();
 
-		System.out.println("auth end");
+		System.out.println("auth 終わり");
 		return client;
 	}
 
+	/**
+	 * ユーザが入力した文字をテキストに登録する
+	 * @param messageText ユーザが入力した文字列
+	 */
 	private void inputText(String messageText) {
 
 		try {
 			FileWriter file = new FileWriter("/tmp/memo.txt", true);
+			BufferedWriter bw = new BufferedWriter(file);
 
 			//ファイルに書き込む
-			file.write(messageText);
-			file.close();
+			bw.newLine();
+			bw.write(messageText);
+
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -84,7 +107,7 @@ public class s3Tool {
 
 	// ｱｯﾌﾟﾛｰﾄﾞ処理
 	private void upload(AmazonS3 client) throws Exception {
-		System.out.println("upload start");
+		System.out.println("upload 開始");
 
 		File file = new File("/tmp/memo.txt");
 		FileInputStream fis = new FileInputStream(file);
@@ -104,12 +127,12 @@ public class s3Tool {
 		}
 		fis.close();
 
-		System.out.println("upload end");
+		System.out.println("upload 終わり");
 	}
 
 	// ﾀﾞｳﾝﾛｰﾄﾞ処理
 	private void download() throws Exception {
-		System.out.println("download start");
+		System.out.println("download 開始");
 
 		// 認証処理
 		AmazonS3 client = auth();
@@ -123,7 +146,7 @@ public class s3Tool {
 
 		fos.close();
 
-		System.out.println("download end");
+		System.out.println("download 終わり");
 	}
 
 }
