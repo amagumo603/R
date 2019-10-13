@@ -33,9 +33,10 @@ public class App {
 
 		//SpreadsheetSearch sss = new SpreadsheetSearch();
 		//sss.searchUnit(originalMessageText);
+		System.out.println("ここはちぇっく１");
 		s3Tool ama = new s3Tool();
 		ama.s3Service(originalMessageText);
-
+		System.out.println("ここはちぇっく２");
 		Random random = new Random();
 		if (originalMessageText.equals("ももも")) {
 			return new TextMessage("もちもち");
