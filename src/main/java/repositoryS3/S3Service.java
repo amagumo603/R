@@ -98,6 +98,9 @@ public class S3Service {
 			bw.newLine();
 			bw.write(messageText);
 
+			bw.close();
+			file.close();
+
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();

@@ -1,7 +1,5 @@
 package line.bot2;
 
-import java.util.Random;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -33,18 +31,19 @@ public class App {
 
 		// S3二テキストを登録
 		S3Service ama = new S3Service();
-		ama.s3Service(originalMessageText);
-
-		Random random = new Random();
-		if (originalMessageText.equals("ももも")) {
-			return new TextMessage("もちもち");
-		}
-		int randomValue = random.nextInt(2);
-		if (randomValue == 0) {
-			return new TextMessage("ももも");
-		}
-
-		return new TextMessage(event.getMessage().getText());
+		String reText = ama.s3Service(originalMessageText);
+		/*
+				Random random = new Random();
+				if (originalMessageText.equals("ももも")) {
+					return new TextMessage("もちもち");
+				}
+				int randomValue = random.nextInt(2);
+				if (randomValue == 0) {
+					return new TextMessage("ももも");
+				}
+		*/
+		//return new TextMessage(event.getMessage().getText());
+		return new TextMessage(reText);
 	}
 
 	@EventMapping
