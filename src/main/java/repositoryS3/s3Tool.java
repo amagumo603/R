@@ -26,7 +26,7 @@ import com.amazonaws.util.IOUtils;
 public class s3Tool {
 
 	public void s3Service(String messageText) {
-
+		System.out.println("テスト開始");
 		AmazonS3 client = auth();
 
 		ObjectListing objListing = client.listObjects(Const.S3_BUCKET_NAME); // バケット名を指定
