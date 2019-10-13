@@ -29,6 +29,8 @@ import com.amazonaws.util.IOUtils;
 
 public class S3Service {
 
+	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
 	/**
 	 * S3と連携するサービス
 	 * @param messageText
@@ -41,11 +43,14 @@ public class S3Service {
 
 		try {
 			if (messageText.equals("一覧")) {
+				String reText = "";
 				download();
 				Path file = Paths.get("/tmp/memo.txt");
-				List<String> text = Files.readAllLines(file); // UTF-8
-
-				return text.get(0);
+				List<String> textList = Files.readAllLines(file); // UTF-8
+				for (String text : textList) {
+					reText = reText + LINE_SEPARATOR + text;
+				}
+				return reText;
 			} else {
 				download();
 				inputText(messageText);
