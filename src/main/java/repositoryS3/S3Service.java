@@ -43,9 +43,9 @@ public class S3Service {
 			if (messageText.equals("一覧")) {
 				download();
 				Path file = Paths.get("/tmp/memo.txt");
-				String text = Files.readString(file);
+				List<String> text = Files.readAllLines(file); // UTF-8
 
-				return text;
+				return text.get(0);
 			} else {
 				download();
 				inputText(messageText);
