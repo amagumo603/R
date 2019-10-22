@@ -1,11 +1,7 @@
 package repositoryS3;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -18,11 +14,8 @@ import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.ObjectListing;
-import com.amazonaws.services.s3.model.ObjectMetadata;
-import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.amazonaws.util.IOUtils;
@@ -30,6 +23,9 @@ import com.amazonaws.util.IOUtils;
 public class S3Service {
 
 	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
+	// S3にテキストを登録するクラス
+	S3Register s3register;
 
 	/**
 	 * S3と連携するサービス
@@ -51,12 +47,20 @@ public class S3Service {
 					reText = reText + LINE_SEPARATOR + text;
 				}
 				return reText;
-			} else {
+			} else if (messageText.startsWith("登録、")) {
 				download();
-				inputText(messageText);
-				upload(client);
+				s3register.inputText(messageText);
+				s3register.upload(client);
+				//s3register.update(client, messageText);
 				return "登録完了٩(ˊᗜˋ*)و";
+			} else if (messageText.startsWith("削除、")) {
+				download();
+				s3register.deleteText(messageText);
+				s3register.upload(client);
+				//s3register.update(client, messageText);
+				return "削除完了 :)";
 			}
+
 		} catch (Exception e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
@@ -87,55 +91,6 @@ public class S3Service {
 
 		System.out.println("auth 終わり");
 		return client;
-	}
-
-	/**
-	 * ユーザが入力した文字をテキストに登録する
-	 * @param messageText ユーザが入力した文字列
-	 */
-	private void inputText(String messageText) {
-
-		try {
-			FileWriter file = new FileWriter("/tmp/memo.txt", true);
-			BufferedWriter bw = new BufferedWriter(file);
-
-			//ファイルに書き込む
-			bw.newLine();
-			bw.write(messageText);
-
-			bw.close();
-			file.close();
-
-		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
-		}
-
-	}
-
-	// ｱｯﾌﾟﾛｰﾄﾞ処理
-	private void upload(AmazonS3 client) throws Exception {
-		System.out.println("upload 開始");
-
-		File file = new File("/tmp/memo.txt");
-		FileInputStream fis = new FileInputStream(file);
-
-		ObjectMetadata om = new ObjectMetadata();
-		om.setContentLength(file.length());
-
-		final PutObjectRequest putRequest = new PutObjectRequest(Const.S3_BUCKET_NAME, file.getName(), fis, om);
-
-		// 権限の設定
-		putRequest.setCannedAcl(CannedAccessControlList.PublicRead);
-		try {
-			// アップロード
-			client.putObject(putRequest);
-		} catch (NoClassDefFoundError e) {
-			// TODO とりあえずエラーを握りつぶし
-		}
-		fis.close();
-
-		System.out.println("upload 終わり");
 	}
 
 	// ﾀﾞｳﾝﾛｰﾄﾞ処理
