@@ -17,8 +17,8 @@ import repositoryS3.S3Service;
 public class App {
 
 	public static void main(String[] args) {
-		//		s3Tool ama = new s3Tool();
-		//		ama.s3Service("Messer");
+		//		S3Service ama = new S3Service();
+		//		ama.s3Service("削除、0");
 		SpringApplication.run(App.class, args);
 		System.out.println("hello");
 	}

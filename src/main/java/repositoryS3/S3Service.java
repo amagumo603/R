@@ -25,7 +25,7 @@ public class S3Service {
 	public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
 	// S3にテキストを登録するクラス
-	S3Register s3register;
+	S3Register s3register = new S3Register();
 
 	/**
 	 * S3と連携するサービス
@@ -51,13 +51,11 @@ public class S3Service {
 				download();
 				s3register.inputText(messageText);
 				s3register.upload(client);
-				//s3register.update(client, messageText);
 				return "登録完了٩(ˊᗜˋ*)و";
 			} else if (messageText.startsWith("削除、")) {
 				download();
 				s3register.deleteText(messageText);
 				s3register.upload(client);
-				//s3register.update(client, messageText);
 				return "削除完了 :)";
 			}
 

@@ -45,8 +45,8 @@ public class S3Register {
 			BufferedWriter bw = new BufferedWriter(file);
 
 			//ファイルに書き込む
+			bw.write(messageText.substring(3));
 			bw.newLine();
-			bw.write(messageText);
 
 			bw.close();
 			file.close();
@@ -65,9 +65,9 @@ public class S3Register {
 	public void deleteText(String messageText) {
 
 		try {
-			String delNumber = messageText.substring(messageText.indexOf("、"));
+			String delNumber = messageText.substring(messageText.indexOf("、") + 1);
 			List<String> lines = Files.readAllLines(Paths.get("/tmp/memo.txt"), StandardCharsets.UTF_8);
-			lines.remove(delNumber);
+			lines.remove(Integer.parseInt(delNumber));
 
 			FileWriter file = new FileWriter("/tmp/memo.txt");
 			BufferedWriter bw = new BufferedWriter(file);
@@ -75,6 +75,7 @@ public class S3Register {
 			//ファイルに書き込む
 			for (String tmpLine : lines) {
 				bw.write(tmpLine);
+				bw.newLine();
 			}
 			bw.close();
 			file.close();
