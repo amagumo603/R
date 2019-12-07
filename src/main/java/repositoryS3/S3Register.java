@@ -71,8 +71,9 @@ public class S3Register {
 
 			if (lines.indexOf(delTarget) != -1) {
 				lines.remove(lines.indexOf(delTarget));
+			} else {
+				lines.remove(Integer.parseInt(delTarget) - 1);
 			}
-			lines.remove(Integer.parseInt(delTarget) - 1);
 
 			FileWriter file = new FileWriter("/tmp/memo.txt");
 			BufferedWriter bw = new BufferedWriter(file);
