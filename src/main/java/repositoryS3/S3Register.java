@@ -65,9 +65,14 @@ public class S3Register {
 	public void deleteText(String messageText) {
 
 		try {
-			String delNumber = messageText.substring(messageText.indexOf("、") + 1);
+			// "、"以下の文字を切り出し
+			String delTarget = messageText.substring(messageText.indexOf("、") + 1);
 			List<String> lines = Files.readAllLines(Paths.get("/tmp/memo.txt"), StandardCharsets.UTF_8);
-			lines.remove(Integer.parseInt(delNumber));
+
+			if (lines.indexOf(delTarget) != -1) {
+				lines.remove(lines.indexOf(delTarget));
+			}
+			lines.remove(Integer.parseInt(delTarget) + 1);
 
 			FileWriter file = new FileWriter("/tmp/memo.txt");
 			BufferedWriter bw = new BufferedWriter(file);

@@ -16,9 +16,17 @@ import repositoryS3.S3Service;
 @LineMessageHandler
 public class App {
 
+	/*
+	 * メインメソッド.
+	 * <p>
+	 * デバッグ実行と、Line実行に切り替えられる
+	 */
 	public static void main(String[] args) {
+
+		// デバッグ用コード
 		//		S3Service ama = new S3Service();
 		//		ama.s3Service("削除、0");
+
 		SpringApplication.run(App.class, args);
 		System.out.println("hello");
 	}
@@ -29,7 +37,7 @@ public class App {
 
 		final String originalMessageText = event.getMessage().getText();
 
-		// S3二テキストを登録
+		// S3にテキストを登録
 		S3Service ama = new S3Service();
 		String reText = ama.s3Service(originalMessageText);
 		/*

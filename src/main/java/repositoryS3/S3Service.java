@@ -32,13 +32,19 @@ public class S3Service {
 	 * @param messageText
 	 */
 	public String s3Service(String messageText) {
+
+		// AWS認証
 		AmazonS3 client = auth();
 
-		ObjectListing objListing = client.listObjects(Const.S3_BUCKET_NAME); // バケット名を指定
+		// バケット名を指定
+		ObjectListing objListing = client.listObjects(Const.S3_BUCKET_NAME);
 		List<S3ObjectSummary> objList = objListing.getObjectSummaries();
 
 		try {
+
 			if (messageText.equals("一覧")) {
+				// 入力文字が"一覧"だったら
+
 				String reText = "";
 				download();
 				Path file = Paths.get("/tmp/memo.txt");
@@ -47,16 +53,20 @@ public class S3Service {
 					reText = reText + LINE_SEPARATOR + text;
 				}
 				return reText;
+
 			} else if (messageText.startsWith("登録、")) {
+				// 入力文字の前半が"登録"だったら
 				download();
 				s3register.inputText(messageText);
 				s3register.upload(client);
-				return "登録完了٩(ˊᗜˋ*)و";
+				return "登録完了 ٩(ˊᗜˋ*)و";
+
 			} else if (messageText.startsWith("削除、")) {
+				// 入力文字の前半が"削除"だったら
 				download();
 				s3register.deleteText(messageText);
 				s3register.upload(client);
-				return "削除完了 :)";
+				return "削除完了 (*•̀ᴗ•́*)و";
 			}
 
 		} catch (Exception e) {
